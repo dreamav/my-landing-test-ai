@@ -1,0 +1,9 @@
+# Dependencies & OS
+.DS_Store
+Thumbs.db
+node_modules/
+
+# Logs & temp
+*.log
+.vscode/
+.idea/

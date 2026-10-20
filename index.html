@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODEX CYBERNETICA // Личный Кодекс & Портфолио</title>
+    <meta name="description" content="Интерактивный 3D-чертёжный кодекс и портфолио Creative Technologist & Spatial Web Architect в стиле Леонардо да Винчи.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Cinematic Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Top Navigation / Status Bar -->
+    <header class="codex-header">
+        <a href="#" class="brand-badge" id="brand-home-link">
+            <div class="brand-logo-seal">⚜</div>
+            <div class="brand-info">
+                <span class="brand-title">Codex Cybernetica</span>
+                <span class="brand-sub">OPUS MAGNUM // ALEX VIBE</span>
+            </div>
+        </a>
+
+        <div class="header-controls">
+            <button class="ctrl-btn" id="sound-toggle-btn" title="Включить / Выключить ASMR шелест">
+                <span class="sound-waves">
+                    <span class="sound-wave"></span>
+                    <span class="sound-wave"></span>
+                    <span class="sound-wave"></span>
+                </span>
+                <span>ASMR SOUND</span>
+            </button>
+
+            <button class="ctrl-btn cta-seal-btn" onclick="window.codexFlip.flip(7)">
+                <span>⚡ ALLIANCE</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Stage: 3D Book Pedestal -->
+    <main class="book-stage">
+        
+        <div class="book-desk-wrapper">
+            <!-- Nav Prev Arrow -->
+            <button class="nav-arrow nav-arrow-prev" id="prev-page-btn" aria-label="Предыдущая страница" title="Назад (← / PageUp)">
+                ‹
+            </button>
+
+            <!-- Book Container for StPageFlip -->
+            <div id="book">
+
+                <!-- ================= PAGE 0: FRONT COVER ================= -->
+                <div class="page page-cover-front" data-density="hard">
+                    <div class="page-blueprint-frame">
+                        <div class="corner-mark corner-tl"></div>
+                        <div class="corner-mark corner-tr"></div>
+                        <div class="corner-mark corner-bl"></div>
+                        <div class="corner-mark corner-br"></div>
+                        <span class="frame-coords coords-top">SYS_ARCH // 43.7696° N, 11.2558° E</span>
+                        <span class="frame-coords coords-bot">TOME SECRETO № 001</span>
+                    </div>
+
+                    <div class="cover-overlay">
+                        <div class="cover-header-badge">
+                            ✦ ANNO DOMINI MMXXVI ✦
+                        </div>
+
+                        <div class="cover-main-block">
+                            <div class="cover-emblem-wrapper">
+                                <div class="emblem-ring"></div>
+                                <div class="emblem-ring-inner"></div>
+                                <div class="emblem-symbol">⚜</div>
+                            </div>
+
+                            <h1 class="cover-title">Codex<br>Cybernetica</h1>
+                            <div class="cover-author">Alexandre Vibe</div>
+                            <p class="cover-subtitle">
+                                Трактат об архитектуре интерактивных 3D-миров, WebGPU-системах и эстетике интерфейсов нового поколения.
+                            </p>
+                        </div>
+
+                        <div class="cover-action-prompt">
+                            <button class="unveil-pill" id="unveil-btn">
+                                <span>РАСКРЫТЬ КОДЕКС</span>
+                                <span>→</span>
+                            </button>
+                            <span class="cover-hint">Кликни или потяни за правый угол книги</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= PAGE 1: SPREAD 1 LEFT - MANIFESTO ================= -->
+                <div class="page" data-density="soft">
+                    <div class="page-blueprint-frame">
+                        <div class="corner-mark corner-tl"></div>
+                        <div class="corner-mark corner-tr"></div>
+                        <div class="corner-mark corner-bl"></div>
+                        <div class="corner-mark corner-br"></div>
+                        <span class="frame-coords coords-top">SECTIO I // PHILOSOPHIA</span>
+                        <span class="frame-coords coords-bot">FOLIO 01</span>
+                    </div>
+
+                    <div class="page-inner">
+                        <div class="folio-header">
+                            <span class="folio-tag">Liber I // Манифест Создателя</span>
+                            <span class="folio-subtag">ARCHITECT SPEC</span>
+                        </div>
+
+                        <div class="manifesto-body">
+                            <h2 class="manifesto-title">Инженерия как высшая форма искусства.</h2>
+                            <p class="manifesto-lead">
+                                Я соединяю математическую строгость <strong>Computer Science</strong>, кинематографичную эстетику <strong>3D/WebGL</strong> и бескомпромиссную плавность отклика в <strong>120 FPS</strong>.
+                            </p>
+
+                            <div class="blueprint-dossier">
+                                <div class="dossier-row">
+                                    <span class="dossier-label">АРХИТЕКТОР:</span>
+                                    <span class="dossier-val">АЛЕКСАНДР ВАЙБ</span>
+                                </div>
+                                <div class="dossier-row">
+                                    <span class="dossier-label">СПЕЦИАЛИЗАЦИЯ:</span>
+                                    <span class="dossier-val">CREATIVE TECH & SPATIAL WEB</span>
+                                </div>
+                                <div class="dossier-row">
+                                    <span class="dossier-label">СТАТУС ГОТОВНОСТИ:</span>
+                                    <span class="dossier-val">ОТКРЫТ К ИННОВАЦИЯМ 2026</span>
+                                </div>
+                                <div class="dossier-row">
+                                    <span class="dossier-label">ФИЛОСОФИЯ:</span>
+                                    <span class="dossier-val">ZERO LATENCY // ULTRA POLISH</span>
+                                </div>
+                            </div>
+
+                            <div class="manifesto-pillars">
+                                <div class="pillar-item">
+                                    <span class="pillar-icon">✦</span>
+                                    <div><strong>Пространственный Веб:</strong> Переход от плоских скучных страниц к тактильным интерактивным пространствам.</div>
+                                </div>
+                                <div class="pillar-item">
+                                    <span class="pillar-icon">✦</span>
+                                    <div><strong>Инженерный перфекционизм:</strong> Чистая архитектура, строгий TypeScript и кастомные шейдерные эффекты.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="folio-footer">
+                            <span>VERIFIED BY PROTOCOL</span>
+                            <span class="page-num">PAGE 01</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= PAGE 2: SPREAD 1 RIGHT - METRICS & RADAR ================= -->
+                <div class="page" data-density="soft">
+                    <div class="page-blueprint-frame">
+                        <div class="corner-mark corner-tl"></div>
+                        <div class="corner-mark corner-tr"></div>
+                        <div class="corner-mark corner-bl"></div>
+                        <div class="corner-mark corner-br"></div>
+                        <span class="frame-coords coords-top">SECTIO I.II // TELEMETRY</span>
+                        <span class="frame-coords coords-bot">FOLIO 02</span>
+                    </div>
+
+                    <div class="page-inner">
+                        <div class="folio-header">
+                            <span class="folio-tag">Liber I.II // Метрики Результата</span>
+                            <span class="folio-subtag">DATA TELEMETRY</span>
+                        </div>
+
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <div class="metric-num">8+</div>
+                                <div class="metric-desc">Лет в коммерческом Creative Dev</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-num">45+</div>
+                                <div class="metric-desc">Запущенных продуктов мирового класса</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-num">$18M+</div>
+                                <div class="metric-desc">Привлечено инвестиций клиентами</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-num">99.9%</div>
+                                <div class="metric-desc">Оценка производительности Lighthouse</div>
+                            </div>
+                        </div>
+
+                        <div class="radar-blueprint-box">
+                            <div class="radar-title">
+                                <span>КВАДРАНТ МАСТЕРСТВА</span>
+                                <span>CALIBRATION: 100%</span>
+                            </div>
+                            
+                            <div class="skill-bars-list">
+                                <div class="skill-bar-row">
+                                    <div class="skill-label-wrap">
+                                        <span>3D / WebGL / WebGPU / Shaders</span>
+                                        <span>98%</span>
+                                    </div>
+                                    <div class="skill-track"><div class="skill-fill" style="width: 98%;"></div></div>
+                                </div>
+
+                                <div class="skill-bar-row">
+                                    <div class="skill-label-wrap">
+                                        <span>Frontend Architecture & React/Next</span>
+                                        <span>96%</span>
+                                    </div>
+                                    <div class="skill-track"><div class="skill-fill" style="width: 96%;"></div></div>
+                                </div>
+
+                                <div class="skill-bar-row">
+                                    <div class="skill-label-wrap">
+                                        <span>Micro-Interactions & Animation (GSAP)</span>
+                                        <span>95%</span>
+                                    </div>
+                                    <div class="skill-track"><div class="skill-fill" style="width: 95%;"></div></div>
+                                </div>
+
+                                <div class="skill-bar-row">
+                                    <div class="skill-label-wrap">
+                                        <span>High-load Systems & WebSockets</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="skill-track"><div class="skill-fill" style="width: 90%;"></div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="folio-footer">
+                            <span>SCALE 1:1 // METRICS AUDIT</span>
+                            <span class="page-num">PAGE 02</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= PAGE 3: SPREAD 2 LEFT - FEATURED PROJECTS I ================= -->
+                <div class="page" data-density="soft">
+                    <div class="page-blueprint-frame">
+                        <div class="corner-mark corner-tl"></div>
+                        <div class="corner-mark corner-tr"></div>
+                        <div class="corner-mark corner-bl"></div>
+                        <div class="corner-mark corner-br"></div>
+                        <span class="frame-coords coords-top">SECTIO II // ARTIFACTS</span>
+                        <span class="frame-coords coords-bot">FOLIO 03</span>
+                    </div>
+
+                    <div class="page-inner">
+                        <div class="folio-header">
+                            <span class="folio-tag">Liber II // Избранные Артефакты</span>
+                            <span class="folio-subtag">CASE 01 & 02</span>
+                        </div>
+
+                        <!-- Project 1 -->
+                        <div class="project-card">
+                            <div class="project-thumb">
+                                <img src="assets/images/project_aetheria.jpg" alt="Aetheria 3D Engine">
+                                <span class="project-badge-top">WEBGPU REALTIME</span>
+                            </div>
+                            <h3 class="project-title">Aetheria 3D Spatial Engine</h3>
+                            <p class="project-desc">
+                                Процедурный генератор 3D-миров нового поколения на чистом WebGPU с объемным светом и кинематикой частиц.
+                            </p>
+                            <div class="tech-tags">
+                                <span class="tag-pill">WebGPU</span>
+                                <span class="tag-pill">WGSL</span>
+                                <span class="tag-pill">TypeScript</span>
+                                <span class="tag-pill">Wasm</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#demo" class="p-link" onclick="window.codexFlip.flip(6)">⚡ Интерактив в Лабе →</a>
+                            </div>
+                        </div>
+
+                        <div class="folio-footer">
+                            <span>ARTEFACTUM CATALOGUS</span>
+                            <span class="page-num">PAGE 03</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= PAGE 4: SPREAD 2 RIGHT - FEATURED PROJECTS II & SCANNER ================= -->
+                <div class="page" data-density="soft">
+                    <div class="page-blueprint-frame">
+                        <div class="corner-mark corner-tl"></div>
+                        <div class="corner-mark corner-tr"></div>
+                        <div class="corner-mark corner-bl"></div>
+                        <div class="corner-mark corner-br"></div>
+                        <span class="frame-coords coords-top">SECTIO II.II // TELEMETRY SCAN</span>
+                        <span class="frame-coords coords-bot">FOLIO 04</span>
+                    </div>
+
+                    <div class="page-inner">
+                        <div class="folio-header">
+                            <span class="folio-tag">Liber II.II // Люксовый 3D-Опыт</span>
+                            <span class="folio-subtag">CASE 03 & SCANNER</span>
+                        </div>
+
+                        <!-- Project 2: Chronos -->
+                        <div class="project-card">
+                            <div class="project-thumb">
+                                <img src="assets/images/project_chronos.jpg" alt="Chronos Tourbillon 3D">
+                                <span class="project-badge-top">LUXURY CONFIGURATOR</span>
+                            </div>
+                            <h3 class="project-title">Chronos Tourbillon Atelier</h3>
+                            <p class="project-desc">
+                                3D-конфигуратор сложных швейцарских хронометров с физически точным преломлением сапфирового стекла.
+                            </p>
+                            <div class="tech-tags">
+                                <span class="tag-pill">Three.js</span>
+                                <span class="tag-pill">PBR Shaders</span>
+                                <span class="tag-pill">Spatial Audio</span>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Project Viewfinder Box -->
+                        <div class="viewfinder-box">
+                            <div class="viewfinder-header">
+                                <span>ИНТЕРАКТИВНЫЙ ВИДОИСКАТЕЛЬ</span>
+                                <span>LIVE TELEMETRY</span>
+                            </div>
+
+                            <div class="viewfinder-selector">
+                                <button class="vf-tab active" data-project="aetheria">AETHERIA</button>
+                                <button class="vf-tab" data-project="quantum">QUANTUM</button>
+                                <button class="vf-tab" data-project="chronos">CHRONOS</button>
+                            </div>
+
+                            <div class="telemetry-display" id="telemetry-body">
+                                <div>PROJ: <span class="val">AETHERIA 3D ENGINE</span></div>
+                                <div>STATUS: <span class="val">STABLE // V.2.4.1</span></div>
+                                <div>PERF: <span class="val">144 FPS (WebGPU) | 18 calls</span></div>
+                                <div>COMPLEXITY: <span class="val">480,000 tris</span></div>
+                                <div style="margin-top: 6px; color: #8892b0; font-size: 8px;">Реализация физически корректного освещения PBR, воксельного террейна и процедурных шейдеров на чистом WGSL.</div>
+                            </div>
+                        </div>
+
+                        <div class="folio-footer">
+                            <span>DIAGNOSTIC PASSED</span>
+                            <span class="page-num">PAGE 04</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= PAGE 5: SPREAD 3 LEFT - TECH ARSENAL ================= -->
+                <div class="page" data-density="soft">
+                    <div class="page-blueprint-frame">
+                        <div class="corner-mark corner-tl"></div>
+                        <div class="corner-mark corner-tr"></div>
+                        <div class="corner-mark corner-bl"></div>
+                        <div class="corner-mark corner-br"></div>
+                        <span class="frame-coords coords-top">SECTIO III // ARSENAL</span>
+                        <span class="frame-coords coords-bot">FOLIO 05</span>
+                    </div>
+
+                    <div class="page-inner">
+                        <div class="folio-header">
+                            <span class="folio-tag">Liber III // Технологический Кодекс</span>
+                            <span class="folio-subtag">ARSENAL</span>
+                        </div>
+
+                        <div class="stack-category-block">
+                            <div class="stack-cat-title">01 // SPATIAL & CREATIVE WEB</div>
+                            <div class="stack-pill-grid">
+                                <div class="tech-badge"><span class="tech-dot"></span>Three.js</div>
+                                <div class="tech-badge"><span class="tech-dot cyan"></span>WebGPU / WGSL</div>
+                                <div class="tech-badge"><span class="tech-dot"></span>WebGL / GLSL</div>
+                                <div class="tech-badge"><span class="tech-dot cyan"></span>GSAP & Canvas</div>
+                                <div class="tech-badge"><span class="tech-dot"></span>Blender 3D</div>
+                                <div class="tech-badge"><span class="tech-dot cyan"></span>Web Audio API</div>
+                            </div>
+                        </div>
+
+                        <div class="stack-category-block">
+                            <div class="stack-cat-title">02 // FRONTEND MASTERY</div>
+                            <div class="stack-pill-grid">
+                                <div class="tech-badge"><span class="tech-dot cyan"></span>TypeScript 5</div>
+                                <div class="tech-badge"><span class="tech-dot"></span>React & Next.js</div>
+                                <div class="tech-badge"><span class="tech-dot cyan"></span>Vanilla CSS Pro</div>
+                                <div class="tech-badge"><span class="tech-dot"></span>State & Signals</div>
+                                <div class="tech-badge"><span class="tech-dot cyan"></span>Micro-Frontends</div>
+                                <div class="tech-badge"><span class="tech-dot"></span>Vite & Esbuild</div>
+                            </div>
+                        </div>
+
+                        <div class="stack-category-block">
+                            <div class="stack-cat-title">03 // CORE ARCHITECTURE & INFRA</div>
+                            <div class="stack-pill-grid">
+                                <div class="tech-badge"><span class="tech-dot cyan"></span>Node.js Core</div>
+                                <div class="tech-badge"><span class="tech-dot"></span>Rust & Wasm</div>
+                                <div class="tech-badge"><span class="tech-dot cyan"></span>WebSockets HFT</div>
+                                <div class="tech-badge"><span class="tech-dot"></span>Docker & CI/CD</div>
+                            </div>
+                        </div>
+
+                        <div class="folio-footer">
+                            <span>TOTAL WEAPONS: 18 TOOLS</span>
+                            <span class="page-num">PAGE 05</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= PAGE 6: SPREAD 3 RIGHT - INTERACTIVE LAB ================= -->
+                <div class="page" data-density="soft">
+                    <div class="page-blueprint-frame">
+                        <div class="corner-mark corner-tl"></div>
+                        <div class="corner-mark corner-tr"></div>
+                        <div class="corner-mark corner-bl"></div>
+                        <div class="corner-mark corner-br"></div>
+                        <span class="frame-coords coords-top">SECTIO IV // EXPERIMENTUM</span>
+                        <span class="frame-coords coords-bot">FOLIO 06</span>
+                    </div>
+
+                    <div class="page-inner">
+                        <div class="folio-header">
+                            <span class="folio-tag">Liber IV // Астролябия Да Винчи</span>
+                            <span class="folio-subtag">LIVE KINETIC CANVAS</span>
+                        </div>
+
+                        <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; text-align: center;">
+                            Интерактивный чертеж гироскопа. Води курсором чтобы наклонять кольца сакральной геометрии в 3D, кликай для импульса искр.
+                        </div>
+
+                        <div class="lab-astrolabe-wrapper">
+                            <canvas id="astrolabe-canvas" width="400" height="400"></canvas>
+                        </div>
+
+                        <div class="lab-instruction">
+                            ✦ КЛИКНИ ПО ЦЕНТРУ ЧТОБЫ ВЫЗВАТЬ ВСПЛЕСК ЧАСТИЦ ✦
+                        </div>
+
+                        <div class="folio-footer">
+                            <span>CHRONO ACCURACY: 99.98%</span>
+                            <span class="page-num">PAGE 06</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= PAGE 7: SPREAD 4 LEFT - CHRONOLOGY ================= -->
+                <div class="page" data-density="soft">
+                    <div class="page-blueprint-frame">
+                        <div class="corner-mark corner-tl"></div>
+                        <div class="corner-mark corner-tr"></div>
+                        <div class="corner-mark corner-bl"></div>
+                        <div class="corner-mark corner-br"></div>
+                        <span class="frame-coords coords-top">SECTIO V // CHRONICON</span>
+                        <span class="frame-coords coords-bot">FOLIO 07</span>
+                    </div>
+
+                    <div class="page-inner">
+                        <div class="folio-header">
+                            <span class="folio-tag">Liber V // Хронология Опыта</span>
+                            <span class="folio-subtag">TIMELINE</span>
+                        </div>
+
+                        <div class="timeline-list">
+                            <div class="timeline-item">
+                                <div class="timeline-date">2024 — ПО НАСТ. ВРЕМЯ</div>
+                                <div class="timeline-role">Principal Creative Architect</div>
+                                <div class="timeline-company">HyperSpatial Studio (Worldwide)</div>
+                                <div class="timeline-notes">Разработка WebGPU движков и кинематографичных сайтов для лидеров технологического сектора.</div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-date">2022 — 2024</div>
+                                <div class="timeline-role">Lead Frontend Engineer</div>
+                                <div class="timeline-company">Finverse Protocol</div>
+                                <div class="timeline-notes">Создание 3D торгового терминала, архитектура real-time телеметрии на WebSockets.</div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-date">2019 — 2022</div>
+                                <div class="timeline-role">Senior WebGL Developer</div>
+                                <div class="timeline-company">CyberAtelier Lab</div>
+                                <div class="timeline-notes">E-commerce конфигураторы и иммерсивные веб-презентации. 4 награды Awwwards SOTD.</div>
+                            </div>
+                        </div>
+
+                        <div class="awards-banner-box">
+                            <div class="award-trophy">
+                                <span>🏆</span>
+                                <strong>AWWWARDS</strong>
+                                <div>4x SOTD</div>
+                            </div>
+                            <div class="award-trophy">
+                                <span>⭐</span>
+                                <strong>FWA</strong>
+                                <div>2x OF THE DAY</div>
+                            </div>
+                            <div class="award-trophy">
+                                <span>💎</span>
+                                <strong>CSS DESIGN</strong>
+                                <div>SPECIAL KUDOS</div>
+                            </div>
+                        </div>
+
+                        <div class="folio-footer">
+                            <span>CAREER TRAJECTORY: UNSTOPPABLE</span>
+                            <span class="page-num">PAGE 07</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= PAGE 8: SPREAD 4 RIGHT - SEAL OF ALLIANCE ================= -->
+                <div class="page" data-density="soft">
+                    <div class="page-blueprint-frame">
+                        <div class="corner-mark corner-tl"></div>
+                        <div class="corner-mark corner-tr"></div>
+                        <div class="corner-mark corner-bl"></div>
+                        <div class="corner-mark corner-br"></div>
+                        <span class="frame-coords coords-top">SECTIO VI // FOEDUS</span>
+                        <span class="frame-coords coords-bot">FOLIO 08</span>
+                    </div>
+
+                    <div class="page-inner">
+                        <div class="folio-header">
+                            <span class="folio-tag">Liber VI // Заключение Альянса</span>
+                            <span class="folio-subtag">SEAL OF AGREEMENT</span>
+                        </div>
+
+                        <div class="alliance-block">
+                            <p class="alliance-lead">
+                                Готовы создать продукт, о котором будут говорить во всех дизайн-каналах и Twitter? Нажмите на сургучную печать для инициации связи:
+                            </p>
+
+                            <div class="wax-seal-container" id="wax-seal" title="Нажми чтобы скрепить союз печатью и скопировать почту!">
+                                <img src="assets/images/wax_seal.jpg" alt="Сургучная печать да Винчи" class="wax-seal-img">
+                            </div>
+
+                            <div class="seal-prompt-text">
+                                ✦ НАЖМИ НА ПЕЧАТЬ ДЛЯ СКРЕПЛЕНИЯ СОЮЗА ✦
+                            </div>
+
+                            <div class="contact-channels-list">
+                                <a href="https://t.me/vibe_creator" target="_blank" rel="noopener" class="contact-channel-btn">
+                                    <span class="channel-name">✈ TELEGRAM DIRECT</span>
+                                    <span>@vibe_creator ↗</span>
+                                </a>
+
+                                <button class="contact-channel-btn copy-trigger" data-copy="alex.vibe@codex-architect.dev">
+                                    <span class="channel-name">✉ EMAIL ADDRESS</span>
+                                    <span>alex.vibe@codex-architect.dev 📋</span>
+                                </button>
+
+                                <a href="https://github.com" target="_blank" rel="noopener" class="contact-channel-btn">
+                                    <span class="channel-name">⚡ GITHUB REPOSITORY</span>
+                                    <span>github.com/vibe-creator ↗</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="folio-footer">
+                            <span>ALLIANCE PROTOCOL READY</span>
+                            <span class="page-num">PAGE 08</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= PAGE 9: BACK COVER ================= -->
+                <div class="page page-cover-back" data-density="hard">
+                    <div class="page-blueprint-frame">
+                        <div class="corner-mark corner-tl"></div>
+                        <div class="corner-mark corner-tr"></div>
+                        <div class="corner-mark corner-bl"></div>
+                        <div class="corner-mark corner-br"></div>
+                        <span class="frame-coords coords-top">EX LIBRIS // ALEX VIBE</span>
+                        <span class="frame-coords coords-bot">FINIS CODICIS</span>
+                    </div>
+
+                    <div class="back-cover-inner">
+                        <div class="cover-header-badge">
+                            ✦ CODEX EXTREMUM ✦
+                        </div>
+
+                        <div class="quote-box">
+                            <div class="quote-text">
+                                «Simplicity is the ultimate sophistication.»
+                            </div>
+                            <div class="quote-author">— LEONARDO DA VINCI</div>
+                        </div>
+
+                        <button class="unveil-pill" id="return-start-btn">
+                            <span>↺ ВЕРНУТЬСЯ К ОБЛОЖКЕ</span>
+                        </button>
+
+                        <div class="back-barcode">
+                            <div class="barcode-lines"></div>
+                            <span>CODEX-2026-X89-GOLD</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- #book end -->
+
+            <!-- Desktop Ribbon Bookmark Tabs -->
+            <aside class="bookmarks-bar" aria-label="Закладки кодекса">
+                <button class="bookmark-tab active" id="tab-cover" data-page="0">
+                    <span class="tab-num">00</span>
+                    <span>ОБЛОЖКА</span>
+                </button>
+                <button class="bookmark-tab" id="tab-manifesto" data-page="1">
+                    <span class="tab-num">01</span>
+                    <span>МАНИФЕСТ</span>
+                </button>
+                <button class="bookmark-tab" id="tab-projects" data-page="3">
+                    <span class="tab-num">02</span>
+                    <span>АРТЕФАКТЫ</span>
+                </button>
+                <button class="bookmark-tab" id="tab-arsenal" data-page="5">
+                    <span class="tab-num">03</span>
+                    <span>АРСЕНАЛ</span>
+                </button>
+                <button class="bookmark-tab" id="tab-lab" data-page="6">
+                    <span class="tab-num">04</span>
+                    <span>ЛАБОРАТОРИЯ</span>
+                </button>
+                <button class="bookmark-tab" id="tab-alliance" data-page="7">
+                    <span class="tab-num">05</span>
+                    <span>КОНТАКТЫ</span>
+                </button>
+            </aside>
+
+            <!-- Nav Next Arrow -->
+            <button class="nav-arrow nav-arrow-next" id="next-page-btn" aria-label="Следующая страница" title="Вперед (→ / PageDown)">
+                ›
+            </button>
+
+        </div> <!-- .book-desk-wrapper end -->
+
+        <div class="book-shadow-ambient"></div>
+    </main>
+
+    <!-- Bottom Status Bar & Keyboard Hints -->
+    <footer class="codex-footer">
+        <div class="footer-spread-info">
+            <span class="spread-tag" id="spread-tag">FOLIO PRIMUS // Лицевая Обложка</span>
+        </div>
+
+        <div class="keyboard-hints">
+            <span>ЛИСТАНИЕ:</span>
+            <span class="kbd-badge">←</span>
+            <span class="kbd-badge">→</span>
+            <span>ИЛИ МЫШЬ ЗА УГОЛ</span>
+        </div>
+
+        <div class="footer-counter">
+            <span id="page-counter">1 / 10</span>
+        </div>
+    </footer>
+
+    <!-- Interactive Toast Notification -->
+    <div class="codex-toast" id="codex-toast">
+        <span id="toast-msg">✨ Союз закреплен!</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/page-flip.browser.js"></script>
+    <script src="js/sound.js"></script>
+    <script src="js/astrolabe.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
