@@ -220,11 +220,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.codexAudio) window.codexAudio.playWaxSeal();
 
             // Copy Email to clipboard
-            const email = 'alex.vibe@codex-architect.dev';
+            const email = 'reloved@gmail.com';
             navigator.clipboard.writeText(email).then(() => {
                 showToast('✨ Сургучная печать поставлена! Email скопирован: ' + email);
             }).catch(() => {
-                showToast('✨ Печать закреплена! Напишите в Telegram @vibe_creator');
+                showToast('✨ Печать закреплена! Напишите в Telegram @andreburg');
             });
 
             setTimeout(() => {
