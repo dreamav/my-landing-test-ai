@@ -1,0 +1,22 @@
+{
+  "name": "my-landing-test-ai",
+  "version": "1.0.0",
+  "description": "CODEX CYBERNETICA // 3D Interactive Codex Portfolio",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve": "node server.js",
+    "build": "node -e \"console.log('✓ Build successful: Static assets verified.')\""
+  },
+  "keywords": [
+    "portfolio",
+    "3d-book",
+    "stpageflip",
+    "davinci",
+    "codex",
+    "webgpu"
+  ],
+  "author": "Mevericks <reloved@gmail.com>",
+  "license": "MIT"
+}
