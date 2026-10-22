@@ -148,26 +148,29 @@ class DaVinciAstrolabe {
         // Perspective distortion simulation
         ctx.translate(cx + this.tiltX * 1.5, cy + this.tiltY * 1.5);
 
+        // Dynamic scale based on canvas size
+        const baseR = Math.min(this.width, this.height) * 0.45;
+
         // Ambient glow around center
-        const grad = ctx.createRadialGradient(0, 0, 10, 0, 0, 160);
-        grad.addColorStop(0, 'rgba(223, 186, 115, 0.12)');
-        grad.addColorStop(0.5, 'rgba(0, 242, 254, 0.04)');
+        const grad = ctx.createRadialGradient(0, 0, 10, 0, 0, baseR * 1.1);
+        grad.addColorStop(0, 'rgba(223, 186, 115, 0.14)');
+        grad.addColorStop(0.5, 'rgba(0, 242, 254, 0.05)');
         grad.addColorStop(1, 'rgba(10, 12, 16, 0)');
         ctx.fillStyle = grad;
         ctx.beginPath();
-        ctx.arc(0, 0, 160, 0, Math.PI * 2);
+        ctx.arc(0, 0, baseR * 1.1, 0, Math.PI * 2);
         ctx.fill();
 
         // Outer Ring 1: Celestial Astrolabe Scale
         ctx.strokeStyle = 'rgba(223, 186, 115, 0.55)';
-        ctx.lineWidth = 1.2;
+        ctx.lineWidth = 1.3;
         ctx.beginPath();
-        ctx.arc(0, 0, 145, 0, Math.PI * 2);
+        ctx.arc(0, 0, baseR, 0, Math.PI * 2);
         ctx.stroke();
 
         ctx.strokeStyle = 'rgba(223, 186, 115, 0.25)';
         ctx.beginPath();
-        ctx.arc(0, 0, 137, 0, Math.PI * 2);
+        ctx.arc(0, 0, baseR * 0.94, 0, Math.PI * 2);
         ctx.stroke();
 
         // Degree ticks around outer ring
@@ -176,9 +179,9 @@ class DaVinciAstrolabe {
         for (let i = 0; i < 72; i++) {
             const rad = (i / 72) * Math.PI * 2;
             const isMajor = i % 6 === 0;
-            const len = isMajor ? 8 : 4;
-            const r1 = 145;
-            const r2 = 145 - len;
+            const len = isMajor ? (baseR * 0.06) : (baseR * 0.03);
+            const r1 = baseR;
+            const r2 = baseR - len;
 
             ctx.strokeStyle = isMajor ? 'rgba(223, 186, 115, 0.8)' : 'rgba(223, 186, 115, 0.3)';
             ctx.lineWidth = isMajor ? 1.5 : 0.8;
@@ -190,8 +193,8 @@ class DaVinciAstrolabe {
         ctx.restore();
 
         // Mechanical Gears
-        this.drawGear(0, 0, 105, 28, 6, this.angleOuter, 'rgba(223, 186, 115, 0.45)');
-        this.drawGear(0, 0, 75, 20, 5, this.angleInner, 'rgba(0, 242, 254, 0.4)');
+        this.drawGear(0, 0, baseR * 0.72, 28, 6, this.angleOuter, 'rgba(223, 186, 115, 0.45)');
+        this.drawGear(0, 0, baseR * 0.52, 20, 5, this.angleInner, 'rgba(0, 242, 254, 0.4)');
 
         // Sacred Hexagram / Triangle Matrix
         ctx.save();
@@ -203,7 +206,7 @@ class DaVinciAstrolabe {
             ctx.beginPath();
             for (let i = 0; i < 3; i++) {
                 const a = (i * 2 * Math.PI) / 3;
-                const r = 58;
+                const r = baseR * 0.40;
                 const x = Math.cos(a) * r;
                 const y = Math.sin(a) * r;
                 if (i === 0) ctx.moveTo(x, y);
@@ -220,10 +223,10 @@ class DaVinciAstrolabe {
         ctx.strokeStyle = '#ffd77a';
         ctx.lineWidth = 1.5;
         ctx.beginPath();
-        ctx.moveTo(0, -50);
-        ctx.lineTo(0, 50);
-        ctx.moveTo(-50, 0);
-        ctx.lineTo(50, 0);
+        ctx.moveTo(0, -baseR * 0.34);
+        ctx.lineTo(0, baseR * 0.34);
+        ctx.moveTo(-baseR * 0.34, 0);
+        ctx.lineTo(baseR * 0.34, 0);
         ctx.stroke();
 
         ctx.fillStyle = '#dfba73';

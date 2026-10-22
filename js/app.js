@@ -9,13 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Initialize StPageFlip instance
     const pageFlip = new St.PageFlip(bookElement, {
-        width: 520, // Base single page width
-        height: 720, // Base single page height
+        width: 660, // Base single page width
+        height: 890, // Base single page height
         size: 'stretch',
         minWidth: 320,
-        maxWidth: 620,
+        maxWidth: 1100, // Allows desktop 2-page spread to expand up to 2200px width!
         minHeight: 460,
-        maxHeight: 880,
+        maxHeight: 1350, // Allows book to scale up vertically to fill tall viewports
         maxShadowOpacity: 0.7,
         showCover: true,
         mobileScrollSupport: false,
